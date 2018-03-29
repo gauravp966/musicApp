@@ -28,6 +28,9 @@
         <!-- Items -->
     <div class ="collapse navbar-collapse" id="topNavBar">
         <ul class="nav navbar-nav">
+
+            {% if user.is_authenticated %}
+
             <li class="active">
                 <a href="{% url 'music:index' %}">
                     <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;Albums
@@ -47,7 +50,12 @@
             <button type="submit" class="btn btn-default" >Search</button>
         </form>
 
+        {% endif %}
+
         <ul class="nav navbar-nav navbar-right">
+
+            {% if user.is_authenticated %}
+
              <li class="">
                 <a href="{% url 'music:album-add' %}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Album
@@ -55,10 +63,26 @@
             </li>
 
              <li class="">
-                <a href="{% url 'music:register' %}">
+                <a href="{% url 'music:login' %}">
                     <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Logout
                 </a>
             </li>
+
+            {% else %}
+
+            <li class="">
+                <a href="{% url 'music:register' %}">
+                    <span class="" aria-hidden="true"></span>&nbsp;Register
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{% url 'music:login' %}">
+                    <span class="" aria-hidden="true"></span>&nbsp;Login
+                </a>
+            </li>
+        {% endif %}
+
         </ul>
 
         </div>

@@ -132,3 +132,5 @@ STATICFILES_DIRS = (
 #
 MEDIA_Root = os.path.join(BASE_DIR, 'media')
 MEDIA_URL='/media/'
+
+LOGIN_URL = 'musicapp/login'

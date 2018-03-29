@@ -5,7 +5,10 @@ app_name = 'music'
 
 urlpatterns = [
     # /music/
-    url(r'^$', views.IndexView.as_view(), name='index'),
+
+    url(r'^$', views.user_login, name='login'),
+
+    url(r'^index$', views.IndexView.as_view(), name='index'),
 
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
     #  /music/712/
